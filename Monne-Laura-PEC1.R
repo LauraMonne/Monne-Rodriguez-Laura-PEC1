@@ -28,3 +28,13 @@ head(colData(se)) #mostra les primeres files de les metadates
 assays(se)$counts #visualitzem les dades quantitative de les mostres
 colData(se) #mostrem les metadates
 se [1:5, 1:3] #fem subconjunts bidimensionals p.e. 5 primeres files i 3 primeres columnes
+#integració dades full "peak" del document GastricCancer amb SummarizedExperiment
+peak_data <- read_excel("C:/Users/laura/OneDrive/Escriptori/GastricCancer_NMR.xlsx", sheet = "Peak")
+head(peak_data) #veiem les primeres files de peak_data
+dim(peak_data) #comprovem les dimensions de peak_data
+rownames(se) #comprovem els noms de les files
+rowData(se) <- as(peak_data, "DataFrame") #introduim rowData com a dataframe a SummarizedExperiment
+rowData(se) #comprovem que les metadates s'han afegit a rowdata
+head(rowData(se)) #mostrem les primeres files de rowdata
+summary(se) #comrpovem que hem afegit metadates a SummarizedExperiment
+se #comrpovem al integració de rowData
