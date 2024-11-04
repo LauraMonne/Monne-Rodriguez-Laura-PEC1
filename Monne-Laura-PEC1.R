@@ -20,3 +20,11 @@ colnames(assays) <- GastricCancer_NMR$SampleID #assignem un nom (sampleID) a cad
 #creem un dataframe amb dades SampleID, SampleType i Class sobre les mostres
 colData <- DataFrame(SampleID = GastricCancer_NMR$SampleID, SampleType = GastricCancer_NMR$SampleType, Class = GastricCancer_NMR$Class)
 dim(colData) #comprovem les dimensions
+#creem el SummarizedExperiment
+se <- SummarizedExperiment(assays = list(counts = assays), colData = colData)
+se #explorem el contingut de SummarizedExperiment
+summary(se) #veiem un resum de SummarizedExperiment
+head(colData(se)) #mostra les primeres files de les metadates
+assays(se)$counts #visualitzem les dades quantitative de les mostres
+colData(se) #mostrem les metadates
+se [1:5, 1:3] #fem subconjunts bidimensionals p.e. 5 primeres files i 3 primeres columnes
