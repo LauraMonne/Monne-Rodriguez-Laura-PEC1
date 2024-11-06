@@ -37,4 +37,4 @@ rowData(se) <- as(peak_data, "DataFrame") #introduim rowData com a dataframe a S
 rowData(se) #comprovem que les metadates s'han afegit a rowdata
 head(rowData(se)) #mostrem les primeres files de rowdata
 summary(se) #comrpovem que hem afegit metadates a SummarizedExperiment
-se #comrpovem al integració de rowData
+se #comprovem al integració de rowData
